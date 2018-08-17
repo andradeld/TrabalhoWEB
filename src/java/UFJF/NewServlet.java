@@ -37,28 +37,16 @@ public class NewServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String aplicacao = (String) this.getServletContext().getInitParameter("aplicacao");
-            String url = (String) this.getInitParameter("url");
             String usu = request.getParameter("usuario");
             String pw = request.getParameter("senha");
             
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet NewServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
+            /* Encaminha para a pagina de menu do sistema. */
             if(usuario.equals(usu) && senha.equals(pw)){
-                out.println("<p>Aplicacao: " + aplicacao + "</p>");
-                out.println("<p>Url: " + url + "</p>");
+                request.getRequestDispatcher("menu.html").forward(request,response);
             }
             else{
                 out.println("<p>Usuário e senha inválidos!</p>");
             }
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 
