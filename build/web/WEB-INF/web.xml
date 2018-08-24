@@ -6,23 +6,39 @@
     </context-param>
     <servlet>
         <servlet-name>NewServlet</servlet-name>
-        <servlet-class>UFJF.NewServlet</servlet-class>
+        <servlet-class>UFJF.Valida</servlet-class>
         <init-param>
             <param-name>url</param-name>
             <param-value>www.ufjf.br</param-value>
         </init-param>
         <init-param>
-            <param-name>usuario</param-name>
-            <param-value>user1</param-value>
+            <param-name>usuario_banco</param-name>
+            <param-value>nbuser</param-value>
         </init-param>
         <init-param>
-            <param-name>senha</param-name>
-            <param-value>abc123</param-value>
+            <param-name>senha_banco</param-name>
+            <param-value>abc1234</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>servletLista</servlet-name>
+        <servlet-class>UFJF.servletLista</servlet-class>
+        <init-param>
+            <param-name>usuario_banco</param-name>
+            <param-value>nbuser</param-value>
+        </init-param>
+        <init-param>
+            <param-name>senha_banco</param-name>
+            <param-value>abc1234</param-value>
         </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servletLista</servlet-name>
+        <url-pattern>/servletLista</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -32,5 +48,9 @@
     <error-page>
         <error-code>404</error-code>
         <location>/erro.html</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/erroException.html</location>
     </error-page>
 </web-app>
