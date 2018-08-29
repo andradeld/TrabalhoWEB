@@ -32,6 +32,10 @@
             <param-value>abc1234</param-value>
         </init-param>
     </servlet>
+    <servlet>
+        <servlet-name>Invalida</servlet-name>
+        <servlet-class>UFJF.Invalida</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
@@ -40,10 +44,12 @@
         <servlet-name>servletLista</servlet-name>
         <url-pattern>/servletLista</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Invalida</servlet-name>
+        <url-pattern>/Invalida</url-pattern>
+    </servlet-mapping>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>1</session-timeout>
     </session-config>
     <error-page>
         <error-code>404</error-code>

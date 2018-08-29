@@ -12,10 +12,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -45,6 +47,11 @@ public class servletLista extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            HttpSession session = request.getSession(false);
+            //Enumeration <String> l = session.getAttributeNames();  //atributos
+            if (session == null || session.getAttribute("login") == null){
+              request.getRequestDispatcher("index.html").forward(request, response);
+            }
             //Pega a senha do banco de dados
             String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";
             String DB_URL = "jdbc:derby://localhost:1527/dados";
@@ -59,6 +66,7 @@ public class servletLista extends HttpServlet {
             out.println("<title>Lista de usuários</title>");
             out.println("</head>");
             out.println("<body>");
+            out.println( "<p>ID da sessão:" + session.getId() + "</p>");
             out.println("<h1>Lista de usuários:</h1>");
             //Tipo de resposta
             try {
@@ -71,7 +79,7 @@ public class servletLista extends HttpServlet {
                 String sql;
                 sql = "SELECT usuario FROM app.tabela order by usuario asc";
                 ResultSet rs = stmt.executeQuery(sql);
-                //Extrai os dados dos resultados
+                 //Extrai os dados dos resultados
                 while (rs.next()) {
                     out.println(rs.getString("usuario") + "<br>");
                 }
