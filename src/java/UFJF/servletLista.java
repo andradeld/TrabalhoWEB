@@ -50,7 +50,8 @@ public class servletLista extends HttpServlet {
             HttpSession session = request.getSession(false);
             //Enumeration <String> l = session.getAttributeNames();  //atributos
             if (session == null || session.getAttribute("login") == null){
-              request.getRequestDispatcher("index.html").forward(request, response);
+              request.setAttribute("erro_login", "Nao logado");
+              request.getRequestDispatcher("index.jsp").forward(request, response);
             }
             //Pega a senha do banco de dados
             String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";

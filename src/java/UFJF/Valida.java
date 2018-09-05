@@ -76,9 +76,10 @@ public class Valida extends HttpServlet {
                 HttpSession session = request.getSession(true);
                 session.setAttribute("login", true);
                 session.setAttribute("teste", new Integer(222));
-                request.getRequestDispatcher("menu.html").forward(request, response);
+                request.getRequestDispatcher("menu.jsp").forward(request, response);
             } else {
-                request.getRequestDispatcher("erro.html").forward(request, response);
+                request.setAttribute("erro_login", "Senha errada");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
             }
             rs.close();
             stmt.close();
