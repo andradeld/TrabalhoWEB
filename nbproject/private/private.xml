@@ -5,9 +5,11 @@
         <group>
             <file>file:/home/pedro/NetBeansProjects/sistemasWeb-1/web/menu.jsp</file>
             <file>file:/home/pedro/NetBeansProjects/sistemasWeb-1/web/index.jsp</file>
+            <file>file:/home/pedro/NetBeansProjects/sistemasWeb-1/web/rodape.html</file>
             <file>file:/home/pedro/NetBeansProjects/sistemasWeb-1/web/WEB-INF/web.xml</file>
             <file>file:/home/pedro/NetBeansProjects/sistemasWeb-1/src/java/UFJF/servletLista.java</file>
             <file>file:/home/pedro/NetBeansProjects/sistemasWeb-1/src/java/UFJF/Valida.java</file>
+            <file>file:/home/pedro/NetBeansProjects/sistemasWeb-1/web/cabecalho.jsp</file>
             <file>file:/home/pedro/NetBeansProjects/sistemasWeb-1/src/java/UFJF/Invalida.java</file>
         </group>
     </open-files>
