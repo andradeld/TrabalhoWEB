@@ -10,11 +10,11 @@
          %>
          <h1><%=erro%></h1>
          <% } %>
-            <form action="NewServlet" method="post">
-                <label>Usuário:</label><br></br>
-                <input type="text" name="usuario" placeholder="Digite o usuário" /><br>
-                <label>Senha:</label><br></br>
-                <input type="password" name="senha" placeholder="Digite a senha" /><br>
+         <form action="NewServlet" method="post"><br>
+                <label>Usuário:</label><br>
+                <input type="text" name="usuario" placeholder="Digite o usuário" /><br><br>
+                <label>Senha:</label><br>
+                <input type="password" name="senha" placeholder="Digite a senha" /><br><br>
                 <button type="submit">Envia</button>
             <form>
 <%@ include file="rodape.html"%>
