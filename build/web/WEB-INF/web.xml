@@ -4,6 +4,10 @@
         <param-name>aplicacao</param-name>
         <param-value>app1</param-value>
     </context-param>
+    <listener>
+        <description>Listener da página</description>
+        <listener-class>UFJF.listener</listener-class>
+    </listener>
     <servlet>
         <servlet-name>NewServlet</servlet-name>
         <servlet-class>UFJF.Valida</servlet-class>

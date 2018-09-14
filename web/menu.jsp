@@ -1,7 +1,8 @@
+<%@page import="UFJF.listener"%>
 <%@ include file="cabecalho.jsp"%>
 <jsp:useBean id = "anuncios" scope = "session" class = "UFJF.anuncios"/>
         <title>Menu</title>
-        <meta http-equiv="REFRESH" content="15;url=menu.jsp">
+        <meta http-equiv="REFRESH" content="5;url=menu.jsp">
         <style type = "text/css">
          .anuncio { font-family: helvetica, arial, sans-serif;
                 font-weight: bold;
@@ -20,6 +21,11 @@
           }
          else {%>
             <p>Bem vindo</p>
+            <%
+                ServletContext sc = request.getServletContext();
+                //sc.getAttribute("usuarios");
+            %>
+            <p> Usuários logados: <%= listener.getNumeroUsuarios() %></p>
             <form action="servletLista" method="post">
                 <button type="submit">Listar usuários</button>
             </form>

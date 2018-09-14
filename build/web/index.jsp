@@ -2,6 +2,7 @@
         <title>Laboratório de programação de sistemas web</title>
     </head>
     <body>
+        <%@ page session = "false" %>
         <div>
          <% // inicia scriptlet                                                                                     
          String erro = (String)request.getAttribute( "erro_login" );                                                        
