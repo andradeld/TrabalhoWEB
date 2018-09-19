@@ -21,10 +21,6 @@
           }
          else {%>
             <p>Bem vindo</p>
-            <%
-                ServletContext sc = request.getServletContext();
-                //sc.getAttribute("usuarios");
-            %>
             <p> Usuários logados: <%= listener.getNumeroUsuarios() %></p>
             <form action="servletLista" method="post">
                 <button type="submit">Listar usuários</button>

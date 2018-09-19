@@ -32,13 +32,17 @@ public class listener implements ServletContextListener,HttpSessionListener{
 
     @Override
     public void sessionCreated(HttpSessionEvent event) {
-        count++;
+        synchronized (this){
+            count++;
+        }
     }
     
     @Override
     public void sessionDestroyed(HttpSessionEvent event) {
-        if(count > 0 ){
-            count--;
+        synchronized (this){
+            if(count > 0 ){
+                count--;
+            }
         }
     }
 
