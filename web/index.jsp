@@ -11,7 +11,7 @@
          %>
          <h1><%=erro%></h1>
          <% } %>
-         <form action="NewServlet" method="post"><br>
+         <form action="Controller" method="post"><br>
                 <label>Usuário:</label><br>
                 <input type="text" name="usuario" placeholder="Digite o usuário" /><br><br>
                 <label>Senha:</label><br>

@@ -26,7 +26,8 @@
                 <button type="submit">Listar usuários</button>
             </form>
             <br><br>
-            <form action="Invalida" method="post">
+            <form action="Controller" method="post">
+                <% session.setAttribute("codigo_op", (int)0); %>
                 <input type="submit" value="Sair" />
             </form>
             <br>

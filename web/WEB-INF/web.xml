@@ -40,6 +40,18 @@
         <servlet-name>Invalida</servlet-name>
         <servlet-class>UFJF.Invalida</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Controller</servlet-name>
+        <servlet-class>UFJF.Controller</servlet-class>
+        <init-param>
+            <param-name>usuario_banco</param-name>
+            <param-value>nbuser</param-value>
+        </init-param>
+        <init-param>
+            <param-name>senha_banco</param-name>
+            <param-value>abc1234</param-value>
+        </init-param>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
@@ -51,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>Invalida</servlet-name>
         <url-pattern>/Invalida</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Controller</servlet-name>
+        <url-pattern>/Controller</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>1</session-timeout>
