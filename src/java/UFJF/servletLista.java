@@ -84,6 +84,9 @@ public class servletLista extends HttpServlet {
                 while (rs.next()) {
                     out.println(rs.getString("usuario") + "<br>");
                 }
+                out.println("<br><form action='Controller' method='post'>");
+                out.println("<button type='submit' name='codigo_op' value='2'> Voltar para o menu </button>");
+                out.println("</form>");
                 //Acaba o HTML
                 out.println("</body>");
                 out.println("</html>");

@@ -110,14 +110,31 @@ public class Controller extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(false);
         if(session == null){
-            //response.sendRedirect("index.jsp");
             validacao(request,response);
         }
         else{
             //Aqui é se a sessao ja existe
-            switch ((int)session.getAttribute("codigo_op")){
+            int s = Integer.parseInt(request.getParameter("codigo_op"));
+            switch (s){
+                //Sair do sistema
                 case 0:{
                     invalidacao(request,response);
+                    break;
+                }
+                //Exibir lista de usuarios
+                case 1:{
+                    request.getRequestDispatcher("servletLista").forward(request, response);
+                    break;
+                }
+                //Voltar pro menu da lista de usuarios
+                case 2:{
+                    response.sendRedirect("menu.jsp");
+                    //request.getRequestDispatcher("menu.jsp").forward(request, response);
+                    break;
+                }
+                default:{
+                    session.removeAttribute("codigo_op");
+                    break;
                 }
             }
         }

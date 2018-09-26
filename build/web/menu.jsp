@@ -22,13 +22,12 @@
          else {%>
             <p>Bem vindo</p>
             <p> Usuários logados: <%= listener.getNumeroUsuarios() %></p>
-            <form action="servletLista" method="post">
-                <button type="submit">Listar usuários</button>
+            <form action="Controller" method="post">
+                <button type="submit" name="codigo_op" value="1"> Listar usuários </button>
             </form>
             <br><br>
             <form action="Controller" method="post">
-                <% session.setAttribute("codigo_op", (int)0); %>
-                <input type="submit" value="Sair" />
+                <button type="submit" name="codigo_op" value="0"> Sair </button>
             </form>
             <br>
             <p class = "anuncio">Anuncio:</p>
