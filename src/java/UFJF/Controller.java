@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
 public class Controller extends HttpServlet {
 
     //Valida
-    private void validacao(HttpServletRequest request, HttpServletResponse response) throws ServletException{
+    /*private void validacao(HttpServletRequest request, HttpServletResponse response) throws ServletException{
         String usuario_db;
         String senha_db;
         usuario_db = getInitParameter("usuario_banco");
@@ -94,6 +94,37 @@ public class Controller extends HttpServlet {
             } catch (SQLException e) {
                 throw new ServletException(e);
             }
+        }
+    }*/
+    
+    //Valida parte 2 o retorno
+    private void validacao(HttpServletRequest request, HttpServletResponse response) throws ServletException{
+        String usuario = request.getParameter("usuario");
+        String senha = request.getParameter("senha");
+        daoClasse teste = new daoClasse();
+        classeUsuario u = new classeUsuario();
+        try{
+            u = teste.findByUsuarioSenha(usuario, senha);
+            if(u != null){
+                if(u.getSenha().equals(senha)){
+                    HttpSession session = request.getSession(true);
+                    session.setAttribute("login", true);
+                    session.setAttribute("teste", new Integer(222));
+                    request.getRequestDispatcher("menu.jsp").forward(request, response);
+                }
+                else{
+                    request.setAttribute("erro_login", "Senha errada");
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                }
+            }
+            else{
+                request.setAttribute("erro_login", "Usuario ou senha errados");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+        }
+        catch (Exception e) {
+            //Erros do class.name
+            throw new ServletException(e);
         }
     }
     

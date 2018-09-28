@@ -12,6 +12,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -71,38 +72,24 @@ public class servletLista extends HttpServlet {
             out.println("<h1>Lista de usuários:</h1>");
             //Tipo de resposta
             try {
-                //Registrar driver JDBC
-                Class.forName(JDBC_DRIVER);
-                //Abre conexão
-                conn = DriverManager.getConnection(DB_URL, usuario_db, senha_db);
-                //Faz query sql
-                stmt = conn.createStatement();
-                String sql;
-                sql = "SELECT usuario FROM app.tabela order by usuario asc";
-                ResultSet rs = stmt.executeQuery(sql);
-                 //Extrai os dados dos resultados
-                while (rs.next()) {
-                    out.println(rs.getString("usuario") + "<br>");
-                }
+               daoClasse teste = new daoClasse();
+               ArrayList <classeUsuario> u = teste.findByUsuarios();
+               //Iterar pela lista e imprimir
+                
+                
                 out.println("<br><form action='Controller' method='post'>");
                 out.println("<button type='submit' name='codigo_op' value='2'> Voltar para o menu </button>");
                 out.println("</form>");
                 //Acaba o HTML
                 out.println("</body>");
                 out.println("</html>");
-                //Fecha conexoes
-                rs.close();
-                stmt.close();
-                conn.close();
-            } catch (SQLException e) {
-                //Cuida dos erros
-                resp = e.getMessage();
-                throw new ServletException(e);
-            } catch (Exception e) {
+            }catch (Exception e) {
                 //Erros do class.name
                 resp = e.getMessage();
                 throw new ServletException(e);
-            } finally {
+            }
+            //Cuida dos erros
+             finally {
                 System.out.printf(resp);
                 //Fecha as conexoes
                 try {

@@ -17,5 +17,5 @@
                 <label>Senha:</label><br>
                 <input type="password" name="senha" placeholder="Digite a senha" /><br><br>
                 <button type="submit" name="codigo_op" value="-1">Envia</button>
-            <form>
+          <form>
 <%@ include file="rodape.html"%>
