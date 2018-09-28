@@ -7,13 +7,7 @@ package UFJF;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Enumeration;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -35,32 +29,16 @@ public class servletLista extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    String usuario_db;
-    String senha_db;
-
-    @Override
-    public void init() {
-        usuario_db = getInitParameter("usuario_banco");
-        senha_db = getInitParameter("senha_banco");
-    }
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession(false);
-            //Enumeration <String> l = session.getAttributeNames();  //atributos
             if (session == null || session.getAttribute("login") == null){
               request.setAttribute("erro_login", "Nao logado");
               request.getRequestDispatcher("index.jsp").forward(request, response);
             }
-            //Pega a senha do banco de dados
-            String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";
-            String DB_URL = "jdbc:derby://localhost:1527/dados";
-            //Credenciais na database
-            Connection conn = null;
-            Statement stmt = null;
-            String resp = null;
             //Cria HTMl
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -75,38 +53,20 @@ public class servletLista extends HttpServlet {
                daoClasse teste = new daoClasse();
                ArrayList <classeUsuario> u = teste.findByUsuarios();
                //Iterar pela lista e imprimir
-                
-                
-                out.println("<br><form action='Controller' method='post'>");
-                out.println("<button type='submit' name='codigo_op' value='2'> Voltar para o menu </button>");
-                out.println("</form>");
-                //Acaba o HTML
-                out.println("</body>");
-                out.println("</html>");
-            }catch (Exception e) {
-                //Erros do class.name
-                resp = e.getMessage();
-                throw new ServletException(e);
+               for (int i = 0; i<u.size(); i++){
+                   out.println(u.get(i).getNome() + "<br>");
+               } 
+            
+               out.println("<br><form action='Controller' method='post'>");
+               out.println("<button type='submit' name='codigo_op' value='2'> Voltar para o menu </button>");
+               out.println("</form>");
+               //Acaba o HTML
+               out.println("</body>");
+               out.println("</html>");
             }
-            //Cuida dos erros
-             finally {
-                System.out.printf(resp);
-                //Fecha as conexoes
-                try {
-                    if (stmt != null) {
-                        stmt.close();
-                    }
-                } catch (SQLException e) {
-                    throw new ServletException(e);
-                }
-                try {
-                    if (conn != null) {
-                        conn.close();
-                    }
-
-                } catch (SQLException e) {
-                    throw new ServletException(e);
-                }
+            catch (Exception e) {
+                //Erros do class.name
+                throw new ServletException(e);
             }
         }
     }

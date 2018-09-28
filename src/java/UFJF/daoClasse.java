@@ -120,7 +120,6 @@ public class daoClasse implements daoInterface {
             while (rs.next()) {
                 classeUsuario user = new classeUsuario();
                 user.setNome(rs.getString("usuario"));
-                user.setSenha(rs.getString("senha"));
                 users.add(user);
             }
             rs.close();
