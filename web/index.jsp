@@ -16,6 +16,6 @@
                 <input type="text" name="usuario" placeholder="Digite o usuário" /><br><br>
                 <label>Senha:</label><br>
                 <input type="password" name="senha" placeholder="Digite a senha" /><br><br>
-                <button type="submit">Envia</button>
+                <button type="submit" name="codigo_op" value="-1">Envia</button>
             <form>
 <%@ include file="rodape.html"%>

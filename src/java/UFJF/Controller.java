@@ -109,13 +109,19 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         HttpSession session = request.getSession(false);
-        if(session == null){
-            validacao(request,response);
+        if(session == null && request.getParameter("codigo_op") == null){
+            request.setAttribute("erro_login", "Nao logado");
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
         else{
             //Aqui é se a sessao ja existe
             int s = Integer.parseInt(request.getParameter("codigo_op"));
             switch (s){
+                //Logar
+                case -1:{
+                    validacao(request,response);
+                    break;
+                }
                 //Sair do sistema
                 case 0:{
                     invalidacao(request,response);
