@@ -20,14 +20,12 @@ import java.util.logging.Logger;
  * @author pedro
  */
 public class daoClasse implements daoInterface {
-    
+        
     @Override
     public classeUsuario findByUsuarioSenha(String usuario, String senha){
         
         String usuario_db = "nbuser";
         String senha_db = "abc1234";
-        //usuario_db = getInitParameter("usuario_banco");
-        //senha_db = getInitParameter("senha_banco");
         //Pega a senha do banco de dados
         String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";
         String DB_URL = "jdbc:derby://localhost:1527/dados";
@@ -95,8 +93,6 @@ public class daoClasse implements daoInterface {
         
         String usuario_db = "nbuser";
         String senha_db = "abc1234";
-        //usuario_db = getInitParameter("usuario_banco");
-        //senha_db = getInitParameter("senha_banco");
         //Pega a senha do banco de dados
         String JDBC_DRIVER = "org.apache.derby.jdbc.ClientDriver";
         String DB_URL = "jdbc:derby://localhost:1527/dados";
