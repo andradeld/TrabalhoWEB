@@ -13,7 +13,7 @@
          <h1><%=erro%></h1>
          <% } %>
          <form action="Controller" method="post"><br>
-             <h1>Laboratório de Programação de Sistemas Web</h1>
+             <marquee><h1>Laboratório de Programação de Sistemas Web</h1></marquee>
              <div class="form-group">
                 <label>Usuário:</label><br>
                 <input class="form-control" type="text" name="usuario" placeholder="Digite o usuário" /><br><br>
@@ -22,7 +22,7 @@
                 <label>Senha:</label><br>
                 <input class="form-control" type="password" name="senha" placeholder="Digite a senha" /><br><br>
               </div>
-                <button class="btn btn-default" type="submit" name="codigo_op" value="-1">Envia</button>
+                <button class="btn btn-primary" type="submit" name="codigo_op" value="-1">Enviar</button>
           <form>
 <%@ include file="rodape.jsp"%>
 </div>

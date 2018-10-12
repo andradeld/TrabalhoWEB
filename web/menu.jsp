@@ -11,7 +11,7 @@
          <% // inicia scriptlet                                                                                                                                             
          if ( session.getAttribute("login") == null )                                  
          {
-             request.setAttribute("erro_login", "Nao logado");
+             request.setAttribute("erro_login", "Nao logado (menu)");
              request.getRequestDispatcher("index.jsp").forward(request, response);
           }
          else {%>

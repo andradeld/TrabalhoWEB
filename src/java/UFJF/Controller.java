@@ -60,13 +60,6 @@ public class Controller extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        HttpSession session = request.getSession(false);
-        if(session == null && request.getParameter("codigo_op") == null){
-            request.setAttribute("erro_login", "Nao logado");
-            request.getRequestDispatcher("index.jsp").forward(request, response);
-        }
-        else{
-            //Aqui é se a sessao ja existe
             int s = Integer.parseInt(request.getParameter("codigo_op"));
             switch (s){
                 //Logar
@@ -87,15 +80,14 @@ public class Controller extends HttpServlet {
                 //Voltar pro menu da lista de usuarios
                 case 2:{
                     response.sendRedirect("menu.jsp");
-                    //request.getRequestDispatcher("menu.jsp").forward(request, response);
                     break;
                 }
+                //Opcao invalida
                 default:{
-                    session.removeAttribute("codigo_op");
+                    System.out.println("Opção inválida");
                     break;
                 }
             }
-        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
