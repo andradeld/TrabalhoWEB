@@ -18,6 +18,11 @@
         <url-pattern>/menu.jsp</url-pattern>
         <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
+    <filter-mapping>
+        <filter-name>controleAcesso</filter-name>
+        <servlet-name>servletLista</servlet-name>
+        <dispatcher>REQUEST</dispatcher>
+    </filter-mapping>
     <listener>
         <description>Listener da página</description>
         <listener-class>UFJF.listener</listener-class>

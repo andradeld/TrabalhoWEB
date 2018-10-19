@@ -31,9 +31,6 @@ public class controleAcesso implements Filter {
     // configured. 
     private FilterConfig filterConfig = null;
     
-    public controleAcesso() {
-    }    
-    
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
         if (debug) {

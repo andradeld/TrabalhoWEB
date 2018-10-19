@@ -35,10 +35,6 @@ public class servletLista extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession(false);
-            if (session == null || session.getAttribute("login") == null){
-              request.setAttribute("erro_login", "Nao logado");
-              request.getRequestDispatcher("index.jsp").forward(request, response);
-            }
             //Cria HTMl
             out.println("<!DOCTYPE html>");
             out.println("<html>");
