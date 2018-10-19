@@ -116,7 +116,7 @@ public class controleAcesso implements Filter {
                codigo = Integer.parseInt(request.getParameter("codigo_op"));
             
             if(session == null && codigo != -1){
-                request.setAttribute("erro_login", "Nao logado!!!!!!!");
+                request.setAttribute("erro_login", "Não logado!");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }
             else

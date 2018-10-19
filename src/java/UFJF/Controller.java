@@ -20,11 +20,15 @@ public class Controller extends HttpServlet {
 
     //Valida
     private void validacao(HttpServletRequest request, HttpServletResponse response) throws ServletException{
-        String usuario = request.getParameter("usuario");
-        String senha = request.getParameter("senha");
         daoClasse teste = new daoClasse();
         classeUsuario u = new classeUsuario();
         try{
+            if(request.getParameter("usuario") == null || request.getParameter("senha") == null){
+                request.setAttribute("erro_login", "Usuario ou senha inválidos");
+                request.getRequestDispatcher("index.jsp").forward(request, response);
+            }
+            String usuario = request.getParameter("usuario");
+            String senha = request.getParameter("senha");
             u = teste.findByUsuarioSenha(usuario, senha);
             if(u != null){
                 if(u.getSenha().equals(senha)){

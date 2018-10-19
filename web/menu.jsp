@@ -8,13 +8,6 @@
     </head>
     <body>
         <div>
-         <% // inicia scriptlet                                                                                                                                             
-         if ( session.getAttribute("login") == null )                                  
-         {
-             request.setAttribute("erro_login", "Nao logado (menu)");
-             request.getRequestDispatcher("index.jsp").forward(request, response);
-          }
-         else {%>
            <div class="container-fluid bg-1 text-center">
             <p>Bem vindo</p>
             <p> Usuários logados: <%= listener.getNumeroUsuarios() %></p>
@@ -31,6 +24,5 @@
             <p><a href = "<jsp:getProperty name = "anuncios" property = "link" />" target="_blank">
             <img class="img-responsive img-circle" src = "<jsp:getProperty name = "anuncios" property = "image" />" alt = "advertisement" /></a></p>
             </center>
-         <% } %>
 <%@ include file="rodape.jsp"%>
 </div>
