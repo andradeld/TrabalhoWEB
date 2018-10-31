@@ -6,6 +6,9 @@
 package UFJF;
 
 import java.io.IOException;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,8 +23,21 @@ public class Controller extends HttpServlet {
 
     //Valida
     private void validacao(HttpServletRequest request, HttpServletResponse response) throws ServletException{
-        daoClasse teste = new daoClasse();
-        classeUsuario u = new classeUsuario();
+        /*
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("semicPU");
+        EntityManager em = emf.createEntityManager();
+        PesquisadorJpaController pjc = new PesquisadorJpaController(emf);
+        Pesquisador encontrada = pjc.findPesquisador(241944);
+        System.out.println(encontrada.getNome());
+        */
+        
+        //daoClasse teste = new daoClasse();
+        //classeUsuario u = new classeUsuario();
+        
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("sistemasWeb-1PU");
+        //EntityManager em = emf.createEntityManager();
+        usuarioPUJpaController pjc = new usuarioPUJpaController(emf);
+        
         try{
             if(request.getParameter("usuario") == null || request.getParameter("senha") == null){
                 request.setAttribute("erro_login", "Usuario ou senha inválidos");
@@ -29,7 +45,8 @@ public class Controller extends HttpServlet {
             }
             String usuario = request.getParameter("usuario");
             String senha = request.getParameter("senha");
-            u = teste.findByUsuarioSenha(usuario, senha);
+            usuarioPU u = pjc.findusuarioPU(usuario);
+            //u = teste.findByUsuarioSenha(usuario, senha);
             if(u != null){
                 if(u.getSenha().equals(senha)){
                     HttpSession session = request.getSession(true);
