@@ -32,7 +32,7 @@ public class usuarioPUJpaController implements Serializable {
     private EntityManagerFactory emf = null;
 
     usuarioPUJpaController(EntityManagerFactory emf) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.emf = emf;
     }
 
     public EntityManager getEntityManager() {

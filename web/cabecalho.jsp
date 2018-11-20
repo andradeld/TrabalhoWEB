@@ -1,9 +1,3 @@
-<%-- 
-    Document   : cabecalho
-    Created on : Sep 6, 2018, 9:21:13 PM
-    Author     : pedro
---%>
-
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>

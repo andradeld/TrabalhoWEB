@@ -33,9 +33,9 @@ public class Controller extends HttpServlet {
         
         //daoClasse teste = new daoClasse();
         //classeUsuario u = new classeUsuario();
-        
+       
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("sistemasWeb-1PU");
-        //EntityManager em = emf.createEntityManager();
+     //   EntityManager em = emf.createEntityManager();
         usuarioPUJpaController pjc = new usuarioPUJpaController(emf);
         
         try{
