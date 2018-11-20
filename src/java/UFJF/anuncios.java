@@ -10,13 +10,13 @@ package UFJF;
  * @author pedro
  */
 public class anuncios {
-    private String images[] = { "images/f1.jpg",
-      "images/met.jpg", "images/csgo.png" };
+    private String images[] = { "images/mc.jpeg",
+      "images/coca.jpg", "images/rapha.png" };
       
    private String links[] = {
-      "http://www.formula1.com",
-      "http://www.metallica.com",
-      "http://www.counter-strike.net" };
+      "https://www.mcdonalds.com.br/",
+      "https://www.cocacola.com.br/pt/home/",
+      "https://www.browniedorapha.com.br/" };
          
    private int selectedIndex = 0;
 

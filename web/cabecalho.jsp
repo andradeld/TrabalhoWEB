@@ -12,11 +12,11 @@
             padding-left: 30px;
         }
         .bg-3 {
-            background-color: #474e5d;
+            background-color: #A4A4A4;
             color: #ffffff;
         }
         .bg-1 {
-            background-color: #1abc9c;
+            background-color: #6E6E6E;
             color: #ffffff;
         }
         p{

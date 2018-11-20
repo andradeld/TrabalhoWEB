@@ -19,10 +19,9 @@
                 <button class="btn btn-default" type="submit" name="codigo_op" value="0"> Sair </button>
             </form>
             <br>
-            <p class = "anuncio">Anuncio:</p>
             <center>
             <p><a href = "<jsp:getProperty name = "anuncios" property = "link" />" target="_blank">
-            <img class="img-responsive img-circle" src = "<jsp:getProperty name = "anuncios" property = "image" />" alt = "advertisement" /></a></p>
+            <img src = "<jsp:getProperty name = "anuncios" property = "image" />" alt = "advertisement" height="240"/></a></p>
             </center>
 <%@ include file="rodape.jsp"%>
 </div>
